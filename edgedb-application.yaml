@@ -2,7 +2,7 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: edgedb
-  namespace: argocd
+  namespace: argocd-skov-run
 spec:
   project: default
   source:
