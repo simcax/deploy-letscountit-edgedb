@@ -1,0 +1,5 @@
+persistence:
+  enabled: true
+  storageClass: "your-storage-class"
+  size: 1Gi
+
