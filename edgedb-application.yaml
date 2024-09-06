@@ -6,7 +6,7 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: 'https://charts.edgedb.com'
+    repoURL: 'https://codeberg.org/Maltazar/edgecd-helm'
     chart: edgedb
     targetRevision: 0.1.0
     helm:
