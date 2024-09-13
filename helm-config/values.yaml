@@ -1,5 +1,47 @@
-persistence:
-  enabled: true
-  storageClass: "your-storage-class"
-  size: 1Gi
+global:
+  envs:
+    # EDGEDB_SERVER_SECURITY: insecure_dev_mode
+    EDGEDB_SERVER_PASSWORD: mypassword
+    EDGEDB_SERVER_TLS_CERT_MODE: generate_self_signed
+    # EDGEDB_SERVER_DATADIR: /var/lib/edgedb/data
 
+########################################################################
+# Setup edgedb
+########################################################################
+edgedb:
+  enabled: true
+  image:
+    repository: edgedb
+    tag: latest
+    imagePullPolicy: Always
+
+  template:
+    replicas: 1
+    spec:
+      securityContext:
+        privileged: true
+        runAsUser: 0
+        runAsGroup: 0
+        capabilities:
+          add: ["SYS_ADMIN"]
+
+  configMaps:
+    edgedb-config:
+      localPath: config/*
+      mountPath: /app/edgedb
+
+  services:
+    edgedb:
+      spec:
+        type: LoadBalancer
+      ports:
+        http:
+          port: 5656
+
+  persistentvolumeclaim:
+    edgedb:
+      enabled: true
+      size: 1Gi
+      # change the storageClassName to match your environment
+      storageClassName: nfs-sc-ssd
+      mountPath: /var/lib/edgedb/data
