@@ -1,6 +1,3 @@
-global:
-    EDGEDB_SERVER_TLS_CERT_MODE: generate_self_signed
-    EDGEDB_SERVER_SECURITY: insecure_dev_mode
     # EDGEDB_SERVER_DATADIR: /var/lib/edgedb/data
 
 ########################################################################
@@ -51,3 +48,9 @@ edgedb:
           secretKeyRef:
             name: edgedb-password
             key: password
+    - name: EDGEDB_SERVER_TLS_CERT_MODE
+      value: generate_self_signed
+    - name: EDGEDB_SERVER_DATADIR
+      value: /var/lib/edgedb/data
+    - name: EDGEDB_SERVER_SECURITY
+      value: insecure_dev_mode
