@@ -44,7 +44,7 @@ edgedb:
       mountPath: /var/lib/edgedb/data
 
   container:
-    envs:
+    env:
       EDGEDB_SERVER_PASSWORD:
         valueFrom:
             secretKeyRef:
