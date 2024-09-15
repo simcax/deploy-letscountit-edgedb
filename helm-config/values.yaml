@@ -50,6 +50,3 @@ edgedb:
           secretKeyRef:
             name: edgedb-password
             key: password
-    ports:
-    - name: http
-      containerPort: 5656
