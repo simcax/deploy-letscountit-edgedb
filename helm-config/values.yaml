@@ -43,7 +43,7 @@ edgedb:
       storageClassName: nfs-sc-ssd
       mountPath: /var/lib/edgedb/data
 
-  containers:
+  container:
     envs:
       EDGEDB_SERVER_PASSWORD:
         valueFrom:
