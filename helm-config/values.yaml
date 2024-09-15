@@ -45,7 +45,7 @@ edgedb:
 
   container:
     env:
-    - name: EDGEDB_SERVER_PASSWORD:
+    - name: EDGEDB_SERVER_PASSWORD
       valueFrom:
           secretKeyRef:
             name: edgedb-password
