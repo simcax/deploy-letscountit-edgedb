@@ -1,5 +1,6 @@
 global:
     EDGEDB_SERVER_TLS_CERT_MODE: generate_self_signed
+    EDGEDB_SERVER_SECURITY: insecure_dev_mode
     # EDGEDB_SERVER_DATADIR: /var/lib/edgedb/data
 
 ########################################################################
